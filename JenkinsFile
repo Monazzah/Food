@@ -1,20 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build Jar') {
             steps {
-               echo "Hello!"
+		sh 'mvn clean install'}
+        }
+        stage('Run Jar') {
+            steps {
+               sh 'ls'
             }
         }
-        stage('Test') {
-            steps {
-               echo "Testing one, two"
-            }
-        }
-        stage('Deploy') {
-            steps {
-               echo "Deploy me"
-            }
-        }
-    }
+            
 }
